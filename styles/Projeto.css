@@ -1,0 +1,89 @@
+﻿/* PROJETO WEB - ESTRUTURA DA MASTER PAGE */
+
+
+/* CABEÇALHO  */
+.barra-fixa {
+    position:fixed;
+    width:100%;
+    background-color:#ffffffdf;
+    z-index:100;
+}
+
+.cabecalho {
+    height: 81px;
+    width: 100%;
+}
+
+.barra-titulo {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    height: 40px;
+    font-size: 18px;
+}
+
+.barra-menu {
+    position: absolute;
+    left: 81px;
+    top: 30px;
+    right: 0;
+    height: 40px;
+    text-align: right;
+}
+
+    .barra-menu a {
+        font-size: 16px;
+        font-weight: bold;
+        margin-left: 30px;
+        text-decoration: none;
+    }
+
+        .barra-menu a:not(.botao-vermelho, .selecionado):hover {
+            color: red;
+            border-bottom: 2px solid red;
+        }
+
+.selecionado {
+    color: red;
+    border-bottom: 2px solid red;
+}
+
+
+.conteudo {
+    min-height: 800px;
+    padding-top:82px;
+}
+
+.botao-vermelho {
+    border: solid #EB3C5A;
+    border-radius: 40px;
+    background-color: #EB3C5A;
+    padding: 10px 40px;
+}
+
+    .botao-vermelho:hover {
+        background-color: #BC3048;
+        border: solid #BC3048;
+    }
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-wrap {
+    max-width: 1048px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+}
+
+    .text-wrap:not(li) {
+        max-width: 1048px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 2;
+    }
+
