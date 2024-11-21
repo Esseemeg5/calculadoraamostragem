@@ -21,6 +21,10 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
 }
 
+h1 {
+    font-size: 70px;
+}
+
 a {
     color: #3d7dc6;
     text-decoration: none;
@@ -33,6 +37,10 @@ a {
     a:hover {
         color: red;
     }
+
+button {
+    cursor: pointer;
+}
 
 body {
     margin: 0;
