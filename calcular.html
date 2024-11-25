@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Inter" rel="stylesheet" />
     <link href="styles/projeto.css" rel="stylesheet" />
     <link href="styles/stylesheet.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.0.0/countUp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/decimal.js/10.4.3/decimal.min.js"></script>
 </head>
 
 <body style="overflow-y: hidden;">
@@ -17,7 +17,7 @@
             <div class="content-wrap-alt">
 
                 <div class="barra-titulo">
-                    <h3>AMOSTRAGEM</h3>
+                    <a href="index.html"><h3>AMOSTRAGEM</h3></a>
                 </div>
 
                 <div class="barra-menu">
@@ -32,17 +32,12 @@
     </div>
     <!-- CONTEÚDO -->
 	<div class="conteudo content-wrap">
-    <div class="margin-top-120">
-        <span id="voltar-seta" style="position: absolute; color: red; cursor: pointer; visibility: hidden;" onclick="Voltar()">
-            <svg width="30" height="54" viewBox="0 0 30 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M27 54C26.1 54 25.5 53.7 24.9 53.1L0.900001 29.1C0.300001 28.5 0 27.6 0 27C0 26.1 0.300001 25.5 0.900001 24.9L24.9 0.9C26.1 -0.3 27.9 -0.3 29.1 0.9C30.3 2.1 30.3 3.9 29.1 5.1L7.2 27L29.1 48.9C30.3 50.1 30.3 51.9 29.1 53.1C28.5 53.7 27.9 54 27 54Z" fill="#EB3C5A"/>
-            </svg>
-        </span>          
-        <h1 id="pergunta-calculo" style="font-size: 70px; text-align: center;">O QUE DESEJA CALCULAR?</h1>
+    <div class="margin-top-60">      
+        <h1 id="pergunta-calculo" style="font-size: 70px; text-align: center; line-height: 1">QUE TIPO DE AMOSTRA QUER CALCULAR?</h1>
         <div class="margin-top-120" style="display: flex; justify-content: space-evenly;">
-            <button id="botao-op1" class="botao-vermelho" style="font-size: 40px; font-weight: bold; text-wrap: wrap; width: 500px; height: 420px;" onclick="TamanhoAmostra()">Tamanho Da Amostra</button>
+            <button id="botao-op1" class="botao-vermelho" style="font-size: 40px; font-weight: bold; text-wrap: wrap; width: 500px; height: 420px;" onclick="AleatoriaSimples()">Aleatória Simples</button>
 
-            <button id="botao-op2" class="botao-vermelho" style="font-size: 40px; font-weight: bold; text-wrap: wrap; width: 500px; height: 420px;" onclick="MargemErro()">Margem De Erro</button>
+            <button id="botao-op2" class="botao-vermelho" style="font-size: 40px; font-weight: bold; text-wrap: wrap; width: 500px; height: 420px;" onclick="Estratificada()">Estratificada</button>
         </div>
     </div>
 	</div>
@@ -58,15 +53,31 @@
                 <path d="M27.7824 22.4968L43.8918 6.42255C44.5973 5.71699 44.9936 4.76005 44.9936 3.76224C44.9936 2.76443 44.5973 1.80749 43.8918 1.10194C43.1864 0.396378 42.2296 0 41.2319 0C40.2342 0 39.2774 0.396378 38.572 1.10194L22.5 17.2137L6.42803 1.10194C5.72257 0.396378 4.76577 -7.43425e-09 3.7681 0C2.77044 7.43426e-09 1.81363 0.396378 1.10817 1.10194C0.402716 1.80749 0.00639358 2.76443 0.00639357 3.76224C0.00639356 4.76005 0.402716 5.71699 1.10817 6.42255L17.2176 22.4968L1.10817 38.5711C0.75703 38.9194 0.478322 39.3338 0.288123 39.7904C0.0979247 40.247 0 40.7367 0 41.2314C0 41.726 0.0979247 42.2157 0.288123 42.6723C0.478322 43.1289 0.75703 43.5433 1.10817 43.8917C1.45645 44.2429 1.8708 44.5216 2.32733 44.7118C2.78386 44.9021 3.27354 45 3.7681 45C4.26267 45 4.75234 44.9021 5.20887 44.7118C5.6654 44.5216 6.07976 44.2429 6.42803 43.8917L22.5 27.7799L38.572 43.8917C38.9202 44.2429 39.3346 44.5216 39.7911 44.7118C40.2477 44.9021 40.7373 45 41.2319 45C41.7265 45 42.2161 44.9021 42.6727 44.7118C43.1292 44.5216 43.5435 44.2429 43.8918 43.8917C44.243 43.5433 44.5217 43.1289 44.7119 42.6723C44.9021 42.2157 45 41.726 45 41.2314C45 40.7367 44.9021 40.247 44.7119 39.7904C44.5217 39.3338 44.243 38.9194 43.8918 38.5711L27.7824 22.4968Z" fill="white"/>
             </svg>                
         </span>      
-        <h1 style="font-size: 50px; color: white; text-align: center; margin-top: 80px;">Calcular Tamanho da Amostra</h1>
-        <div class="inputs">
-            
+        <h1 id="calculadora-titulo" style="font-size: 50px; color: white; text-align: center; margin-top: 80px;">Calcular Tamanho Da Amostra</h1>
+        <div id="inputs" class="inputs">
+            <!-- <div class=\"indiv-input\">
+                <label>1. Tamanho Da População</label>
+                <input type=\"number\" id=\"tamanho-pop\"><br><br>
+                <input id=\"check-popinfinita\" name=\"check-popinfinita\" type=\"checkbox\" onclick=\"PopInfinita()\">
+                <label for=\"check-popinfinita\" style=\"display: inline;\">População infinita?</label>
+            </div>
+
+            <div class=\"indiv-input\">
+                <label>2. Confiabilidade (%)</label>
+                <input type=\"number\" id=\"confiabilidade\">
+            </div>
+
+            <div class=\"indiv-input\">
+                <label>3. Erro Amostral (%)</label>
+                <input type=\"number\" id=\"erro-amostral\">
+            </div> -->
         </div>
         <div class="resultado">
-            <h1 style="color: white">TAMANHO DA AMOSTRA</h1>
-            <span class="resultado-numero">0</span>
+            <h1 id="resultado-titulo" style="color: white">TAMANHO DA AMOSTRA</h1>
+            <span id="resultado-numero" class="resultado-numero">0</span>
         </div>
     </div>
+    <script src="scripts/countup.js"></script>
     <script src="scripts/calcscript.js"></script>
 </body>
 </html>
