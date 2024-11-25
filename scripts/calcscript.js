@@ -55,17 +55,12 @@ function SetPart(selectedType) {
         //      <label>2. Tamanho Da Amostra</label>
         //      <input type="number" id="tamanho-amostra" oninput="Calcular()">
         // </div>
-        
-        // <div class="indiv-input">
-        //      <label>3. N° De Estratos</label>
-        //      <input type="number" id="num-estratos" oninput="Calcular()">
-        // </div>
 
         // <div class="indiv-input">
         //      <label>4. Tamanho De Um Dos Estratos</label>
         //      <input type="number" id="tamanho-estrato" oninput="Calcular()">
         // </div>
-        inputsDiv.innerHTML = "<div class=\"indiv-input\">\n<label>1. Tamanho Da População</label>\n<input type=\"number\" id=\"tamanho-pop\" oninput=\"Calcular()\"><br><br>\n</div>\n<div class=\"indiv-input\">\n<label>2. Tamanho Da Amostra</label>\n<input type=\"number\" id=\"tamanho-amostra\" oninput=\"Calcular()\">\n</div>\n<div class=\"indiv-input\">\n<label>3. N° De Estratos</label>\n<input type=\"number\" id=\"num-estratos\" oninput=\"Calcular()\">\n</div>\n<div class=\"indiv-input\">\n<label>4. Tamanho De Um Dos Estratos</label>\n<input type=\"number\" id=\"tamanho-estrato\" oninput=\"Calcular()\">\n</div>";
+        inputsDiv.innerHTML = "<div class=\"indiv-input\">\n<label>1. Tamanho Da População</label>\n<input type=\"number\" id=\"tamanho-pop\" oninput=\"Calcular()\"><br><br>\n</div>\n<div class=\"indiv-input\">\n<label>2. Tamanho Da Amostra</label>\n<input type=\"number\" id=\"tamanho-amostra\" oninput=\"Calcular()\">\n</div>\n<div class=\"indiv-input\">\n<label>3. Tamanho De Um Dos Estratos</label>\n<input type=\"number\" id=\"tamanho-estrato\" oninput=\"Calcular()\">\n</div>";
         calculadoraTitulo.innerHTML = "Calcular Tamanho da Amostra (Estratificada)";
         resultadoTitulo.innerHTML = "TAMANHO DA AMOSTRA INDIVIDUAL";
         contador.reset();
@@ -115,7 +110,15 @@ function Calcular() {
             resultado = Decimal.ceil(Decimal.div(Decimal.mul(tamanhoPop, n0), Decimal.sum(tamanhoPop, n0)));
         }
     } else { // ESTRATIFICADA
+        let tamanhoPop = parseInt(document.getElementById('tamanho-pop').value);
+        let tamanhoAmostra = parseInt(document.getElementById('tamanho-amostra').value);
+        let tamanhoEstrato = parseInt(document.getElementById('tamanho-estrato').value);
 
+        if (isNaN(tamanhoPop) || isNaN(tamanhoAmostra) || isNaN(tamanhoEstrato)) return;
+
+        let proporc = Decimal.div(tamanhoAmostra, tamanhoPop);
+
+        resultado = Decimal.round(Decimal.mul(tamanhoEstrato, proporc));
     }
     contador.update(Number(resultado));
 }
