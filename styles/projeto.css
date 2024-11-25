@@ -100,17 +100,17 @@
 
 @keyframes open {
     100% {
-        transform: translate(0, -700px);
+        transform: translate(0, -750px);
     }
 }
 
 @keyframes close {
     0% {
-        transform: translate(0, -700px);
+        transform: translate(0, -750px);
     }
 
     100% {
-        transform: translate(0, 700px);
+        transform: translate(0, 750px);
     }
 }
 
@@ -129,5 +129,17 @@
 }
 
 .inputs {
-    margin-bottom: 180px;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 70px;
+    margin-bottom: 90px;
+    justify-self: center;
+}
+
+.indiv-input {
+    flex-basis: 33.33333%;
+    justify-items: center;
 }

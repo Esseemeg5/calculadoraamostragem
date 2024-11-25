@@ -25,6 +25,27 @@ h1 {
     font-size: 70px;
 }
 
+input[type=number] {
+    outline: none;
+    color: white;
+    font-size: 1.4em;
+    padding: 0 20px;
+    line-height: 30px;
+    border-radius: 20px;
+    border: 2px solid white;
+    background: transparent;
+}
+
+input[type=number]:disabled {
+    background:rgba(255, 255, 255, 0.4)
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 a {
     color: #3d7dc6;
     text-decoration: none;
@@ -193,11 +214,12 @@ CONTROLES DE FORMULÁRIOS
 ********************************************************************/
 
 label {
-    margin-top: 20px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
     display: block;
     max-width: 100%;
-    font-size: 12px;
-    text-transform: uppercase;
+    margin-bottom: 10px;
 }
 
 input[type="text"],
