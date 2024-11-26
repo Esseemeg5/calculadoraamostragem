@@ -101,9 +101,11 @@ function Calcular() {
         if (isNaN(tamanhoPop) && infinita == false) return;
         if (isNaN(erroAmostral)) return;
 
+        if (tamanhoPop < 0 || erroAmostral < 0) return;
+
         let n0 = new Decimal(erroAmostral);
         n0 = 1 / Decimal.pow(n0 / 100, 2);
-
+        
         if (infinita === true) {
             resultado = Number(n0).toFixed(0);
         } else {
@@ -115,6 +117,7 @@ function Calcular() {
         let tamanhoEstrato = parseInt(document.getElementById('tamanho-estrato').value);
 
         if (isNaN(tamanhoPop) || isNaN(tamanhoAmostra) || isNaN(tamanhoEstrato)) return;
+        if (tamanhoPop < 0 || tamanhoAmostra < 0 || tamanhoEstrato < 0) return;
 
         let proporc = Decimal.div(tamanhoAmostra, tamanhoPop);
 
