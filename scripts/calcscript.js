@@ -41,7 +41,7 @@ function SetPart(selectedType) {
         //     <label>2. Erro Amostral (%)</label>
         //     <input type="number" id="erro-amostral">
         // </div>
-        inputsDiv.innerHTML = "<div class=\"indiv-input\">\n<label>1. Tamanho Da População</label>\n<input type=\"number\" id=\"tamanho-pop\" min=\"1\" oninput=\"Calcular()\"><br><br>\n<input id=\"check-popinfinita\" name=\"check-popinfinita\" type=\"checkbox\" onclick=\"PopInfinita()\">\n<label for=\"check-popinfinita\" style=\"display: inline;\">População infinita?</label>\n</div>\n<div class=\"indiv-input\">\n<label>2. Erro Amostral (%)</label>\n<input type=\"number\" id=\"erro-amostral\" min=\"1\" oninput=\"Calcular()\">\n</div>";
+        inputsDiv.innerHTML = "<div class=\"indiv-input\">\n<label>1. Tamanho Da População</label>\n<input type=\"number\" id=\"tamanho-pop\" oninput=\"Calcular()\"><br><br>\n<input id=\"check-popinfinita\" name=\"check-popinfinita\" type=\"checkbox\" onclick=\"PopInfinita()\">\n<label for=\"check-popinfinita\" style=\"display: inline;\">População infinita?</label>\n</div>\n<div class=\"indiv-input\">\n<label>2. Erro Amostral (%)</label>\n<input type=\"number\" id=\"erro-amostral\" oninput=\"Calcular()\">\n</div>";
         calculadoraTitulo.innerHTML = "Calcular Tamanho da Amostra (Aleatória Simples)";
         resultadoTitulo.innerHTML = "TAMANHO DA AMOSTRA";  
         contador.reset();  
@@ -60,7 +60,7 @@ function SetPart(selectedType) {
         //      <label>4. Tamanho De Um Dos Estratos</label>
         //      <input type="number" id="tamanho-estrato" oninput="Calcular()">
         // </div>
-        inputsDiv.innerHTML = "<div class=\"indiv-input\">\n<label>1. Tamanho Da População</label>\n<input type=\"number\" id=\"tamanho-pop\" min=\"1\" oninput=\"Calcular()\"><br><br>\n</div>\n<div class=\"indiv-input\">\n<label>2. Tamanho Da Amostra</label>\n<input type=\"number\" id=\"tamanho-amostra\" min=\"1\" oninput=\"Calcular()\">\n</div>\n<div class=\"indiv-input\">\n<label>3. Tamanho De Um Dos Estratos</label>\n<input type=\"number\" id=\"tamanho-estrato\" min=\"1\" oninput=\"Calcular()\">\n</div>";
+        inputsDiv.innerHTML = "<div class=\"indiv-input\">\n<label>1. Tamanho Da População</label>\n<input type=\"number\" id=\"tamanho-pop\" oninput=\"Calcular()\"><br><br>\n</div>\n<div class=\"indiv-input\">\n<label>2. Tamanho Da Amostra</label>\n<input type=\"number\" id=\"tamanho-amostra\" oninput=\"Calcular()\">\n</div>\n<div class=\"indiv-input\">\n<label>3. Tamanho De Um Dos Estratos</label>\n<input type=\"number\" id=\"tamanho-estrato\" oninput=\"Calcular()\">\n</div>";
         calculadoraTitulo.innerHTML = "Calcular Tamanho da Amostra (Estratificada)";
         resultadoTitulo.innerHTML = "TAMANHO DA AMOSTRA INDIVIDUAL";
         contador.reset();
