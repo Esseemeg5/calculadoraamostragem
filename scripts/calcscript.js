@@ -98,14 +98,26 @@ function Calcular() {
         let tamanhoPop = parseInt(document.getElementById('tamanho-pop').value);
         let erroAmostral = parseInt(document.getElementById('erro-amostral').value);
 
+        if (tamanhoPop <= 0) {
+            tamanhoPop = 1;
+            document.getElementById('tamanho-pop').value = 1;
+        }
+
+        if (erroAmostral <= 0) {
+            erroAmostral = 1;
+            document.getElementById('erro-amostral').value = 1;
+        }
+        else if (erroAmostral > 100) {
+            erroAmostral = 100;
+            document.getElementById('erro-amostral').value = 100;
+        }
+
         if (isNaN(tamanhoPop) && infinita == false) return;
         if (isNaN(erroAmostral)) return;
 
-        if (tamanhoPop < 0 || erroAmostral < 0) return;
-
         let n0 = new Decimal(erroAmostral);
         n0 = 1 / Decimal.pow(n0 / 100, 2);
-        
+
         if (infinita === true) {
             resultado = Number(n0).toFixed(0);
         } else {
@@ -116,8 +128,28 @@ function Calcular() {
         let tamanhoAmostra = parseInt(document.getElementById('tamanho-amostra').value);
         let tamanhoEstrato = parseInt(document.getElementById('tamanho-estrato').value);
 
+        if (tamanhoPop <= 0) {
+            tamanhoPop = 1;
+            document.getElementById('tamanho-pop').value = 1;
+        }
+
+        if (tamanhoAmostra <= 0) {
+            tamanhoAmostra = 1;
+            document.getElementById('tamanho-amostra').value = 1;
+        } else if (tamanhoAmostra > tamanhoPop) {
+            tamanhoAmostra = tamanhoPop - 1;
+            document.getElementById('tamanho-amostra').value = tamanhoAmostra;
+        }
+
+        if (tamanhoEstrato <= 0) {
+            tamanhoEstrato = 1;
+            document.getElementById('tamanho-estrato').value = 1;
+        } else if (tamanhoEstrato > tamanhoAmostra) {
+            tamanhoEstrato = tamanhoAmostra - 1;
+            document.getElementById('tamanho-estrato').value = tamanhoEstrato;
+        }
+
         if (isNaN(tamanhoPop) || isNaN(tamanhoAmostra) || isNaN(tamanhoEstrato)) return;
-        if (tamanhoPop < 0 || tamanhoAmostra < 0 || tamanhoEstrato < 0) return;
 
         let proporc = Decimal.div(tamanhoAmostra, tamanhoPop);
 
